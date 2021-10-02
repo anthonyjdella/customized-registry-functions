@@ -3,7 +3,7 @@ const _ = require("lodash");
 const axios = require("axios");
 const express = require("express");
 const cors = require("cors");
-const resumeSchema = require("resume-schema");
+const resumeSchema = require("anthonyjdella-resume-schema");
 const fs = require("fs");
 const app = express();
 app.use(cors({ origin: true }));

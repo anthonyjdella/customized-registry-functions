@@ -10,9 +10,10 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "10"
+    "node": ">10"
   },
   "dependencies": {
+    "anthonyjdella-resume-schema": "^1.0.0",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "even": "^0.1.1",
