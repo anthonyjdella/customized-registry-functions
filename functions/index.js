@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
   var serviceAccount = require("../creds.json");
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://jsonresume-registry-b00b5.firebaseio.com"
+    databaseURL: "https://console.firebase.google.com/u/1/project/jsonresume-registry-b00b5/database/data"
   });
 }
 
