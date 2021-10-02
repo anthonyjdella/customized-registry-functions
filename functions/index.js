@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
   var serviceAccount = require("../creds.json");
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://console.firebase.google.com/u/1/project/jsonresume-registry-b00b5/database/data"
+    databaseURL: "https://jsonresume-registry-b00b5-default-rtdb.firebaseio.com"
   });
 }
 
@@ -111,7 +111,7 @@ app.get("/:username", async (req, res) => {
   ) {
     return res.send(null);
   }
-  var ref = db.ref();
+  // var ref = db.ref();
   var usersRef = ref.child("gists/" + username);
   usersRef.on("value", async dataSnapshot => {
     console.log("=======");
