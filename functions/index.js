@@ -9,6 +9,7 @@ const app = express();
 app.use(cors({ origin: true }));
 // Import Admin SDK
 var admin = require("firebase-admin");
+require('dotenv').config;
 
 const packages = JSON.parse(fs.readFileSync(__dirname + "/package.json"))
   .dependencies;
