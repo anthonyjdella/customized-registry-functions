@@ -19,15 +19,16 @@ const themes = _.filter(_.keys(packages), p => {
 });
 
 console.log("NODE_ENV: " + process.env.NODE_ENV);
-if (process.env.NODE_ENV === "production") {
-  admin.initializeApp(functions.config().firebase);
-} else {
-  var serviceAccount = require("../creds.json");
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://jsonresume-registry-b00b5-default-rtdb.firebaseio.com"
-  });
-}
+admin.initializeApp(functions.config().firebase);
+// if (process.env.NODE_ENV === "production") {
+//   admin.initializeApp(functions.config().firebase);
+// } else {
+//   var serviceAccount = require("../creds.json");
+//   admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount),
+//     databaseURL: "https://jsonresume-registry-b00b5-default-rtdb.firebaseio.com"
+//   });
+// }
 
 var db = admin.database();
 const dbs = admin.firestore();
