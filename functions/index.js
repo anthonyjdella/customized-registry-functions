@@ -17,6 +17,7 @@ const themes = _.filter(_.keys(packages), p => {
   return p.indexOf("theme") !== -1;
 });
 
+console.log("NODE_ENV: " + process.env.NODE_ENV);
 if (process.env.NODE_ENV === "production") {
   admin.initializeApp(functions.config().firebase);
 } else {
