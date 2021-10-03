@@ -111,7 +111,7 @@ app.get("/:username", async (req, res) => {
   ) {
     return res.send(null);
   }
-  // var ref = db.ref();
+  var ref = db.ref();
   var usersRef = ref.child("gists/" + username);
   usersRef.on("value", async dataSnapshot => {
     console.log("=======");
