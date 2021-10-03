@@ -33,7 +33,6 @@ jobs:
         cd functions
         npm i
         echo $NODE_ENV
-        echo ${process.env.NODE_ENV}
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
