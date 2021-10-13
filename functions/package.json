@@ -23,6 +23,7 @@
     "firebase-functions": "^3.15.7",
     "jsonresume-theme-anthonyjdella-actual" : "^1.0.1",
     "jsonresume-theme-anthonyjdella-elegant" : "^1.0.0",
+    "jsonresume-theme-anthonyjdella-github" : "^1.0.0",
     "jsonresume-theme-actual": "0.1.4",
     "jsonresume-theme-dave": "^1.0.1",
     "jsonresume-theme-elegant": "^1.16.1",
