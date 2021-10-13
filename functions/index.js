@@ -39,8 +39,7 @@ const makeTemplate = message => {
 };
 const getTheme = theme => {
   try {
-    const defaultTheme; 
-    defaultTheme = require(__dirname + "/node_modules/jsonresume-theme-" + theme);
+    var defaultTheme = require(__dirname + "/node_modules/jsonresume-theme-" + theme);
   } catch (e) {
     return {
       e: e.toString(),
@@ -49,8 +48,7 @@ const getTheme = theme => {
     };
   }
   try {
-    const anthonyTheme;
-    anthonyTheme = require(__dirname + "/node_modules/@anthonyjdella/jsonresume-theme-" + theme);
+    var anthonyTheme = require(__dirname + "/node_modules/@anthonyjdella/jsonresume-theme-" + theme);
   } catch (e) {
     return {
       e: e.toString(),
