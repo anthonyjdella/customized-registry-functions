@@ -39,7 +39,7 @@ const makeTemplate = message => {
 };
 const getTheme = theme => {
   try {
-    var defaultTheme = require(__dirname + "/node_modules/jsonresume-theme-" + theme);
+    return require(__dirname + "/node_modules/jsonresume-theme-" + theme);
   } catch (e) {
     return {
       e: e.toString(),
@@ -47,8 +47,11 @@ const getTheme = theme => {
         "Theme is not supported please visit -> https://github.com/jsonresume/registry-functions/issues/7"
     };
   }
+};
+
+const getCustomTheme = theme => {
   try {
-    var anthonyTheme = require(__dirname + "/node_modules/@anthonyjdella/jsonresume-theme-" + theme);
+    return require(__dirname + "/node_modules/@anthonyjdella/jsonresume-theme-anthonyjdella" + theme);
   } catch (e) {
     return {
       e: e.toString(),
@@ -56,7 +59,6 @@ const getTheme = theme => {
         "Theme is not supported please visit -> https://github.com/jsonresume/registry-functions/issues/7"
     };
   }
-  return defaultTheme || anthonyTheme
 };
 
 app.get("/themes", (req, res) => {
@@ -66,6 +68,16 @@ app.get("/theme/:theme", (req, res) => {
   const resumeJson = JSON.parse(fs.readFileSync(__dirname + "/resume.json"));
   const theme = req.params.theme.toLowerCase();
   const themeRenderer = getTheme(theme);
+  if (themeRenderer.error) {
+    return res.send(themeRenderer.error + " - " + themeRenderer.e);
+  }
+  const resumeHTML = themeRenderer.render(resumeJson, {});
+  res.send(resumeHTML);
+});
+app.get("/theme/:customTheme", (req, res) => {
+  const resumeJson = JSON.parse(fs.readFileSync(__dirname + "/resume.json"));
+  const theme = req.params.theme.toLowerCase();
+  const themeRenderer = getCustomTheme(theme);
   if (themeRenderer.error) {
     return res.send(themeRenderer.error + " - " + themeRenderer.e);
   }
