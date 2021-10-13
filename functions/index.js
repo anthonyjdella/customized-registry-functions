@@ -49,9 +49,9 @@ const getTheme = theme => {
   }
 };
 
-const getCustomTheme = customTheme => {
+const getCustomTheme = custom => {
   try {
-    return require(__dirname + "/node_modules/@anthonyjdella/jsonresume-theme-anthonyjdella-" + customTheme);
+    return require(__dirname + "/node_modules/@anthonyjdella/jsonresume-theme-anthonyjdella-" + custom);
   } catch (e) {
     return {
       e: e.toString(),
@@ -201,20 +201,37 @@ app.get("/:username", async (req, res) => {
       }
       const resumesRef = dbs.collection("resumes");
       resumesRef.doc(username).set(resumeRes.data);
-      let theme =
+
+      if (req.query.theme !== {}) {
+        let theme =
         req.query.theme ||
         (resumeRes.data.meta && resumeRes.data.meta.theme) ||
         "flat";
-      theme = theme.toLowerCase();
-      const themeRenderer = getTheme(theme);
-      if (themeRenderer.error) {
-        return res.send(themeRenderer.error + " - " + themeRenderer.e);
+        theme = theme.toLowerCase();
+        const themeRenderer = getTheme(theme);
+        if (themeRenderer.error) {
+          return res.send(themeRenderer.error + " - " + themeRenderer.e);
+        }
+        const resumeHTML = themeRenderer.render(resumeRes.data, {});
+        // if (!resumeHTMLRes.data) {
+        //   res.send("There was an error generatoring your resume");
+        // }
+        res.send(resumeHTML);
+      } 
+      else if (req.query.customTheme !== {}) {
+        let custom = req.query.customTheme || "github";
+        custom = custom.toLowerCase();
+        const customThemeRenderer = getCustomTheme(custom);
+        if (customThemeRenderer.error) {
+          return res.send(customThemeRenderer.error + " - " + customThemeRenderer.e);
+        }
+        const customResumeHTML = customThemeRenderer.render(resumeRes.data, {});
+        // if (!resumeHTMLRes.data) {
+        //   res.send("There was an error generatoring your resume");
+        // }
+        res.send(customResumeHTML);
       }
-      const resumeHTML = themeRenderer.render(resumeRes.data, {});
-      // if (!resumeHTMLRes.data) {
-      //   res.send("There was an error generatoring your resume");
-      // }
-      res.send(resumeHTML);
+
     });
   });
 });
