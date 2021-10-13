@@ -202,7 +202,7 @@ app.get("/:username", async (req, res) => {
       const resumesRef = dbs.collection("resumes");
       resumesRef.doc(username).set(resumeRes.data);
 
-      if (req.query.theme !== {}) {
+      if (req.query.theme) {
         let theme =
         req.query.theme ||
         (resumeRes.data.meta && resumeRes.data.meta.theme) ||
@@ -218,7 +218,7 @@ app.get("/:username", async (req, res) => {
         // }
         res.send(resumeHTML);
       } 
-      else if (req.query.customTheme !== {}) {
+      else if (req.query.customTheme) {
         let custom = req.query.customTheme || "github";
         custom = custom.toLowerCase();
         const customThemeRenderer = getCustomTheme(custom);
