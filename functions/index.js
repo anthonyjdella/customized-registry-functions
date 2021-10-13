@@ -39,7 +39,8 @@ const makeTemplate = message => {
 };
 const getTheme = theme => {
   try {
-    return require(__dirname + "/node_modules/jsonresume-theme-" + theme);
+    const defaultTheme; 
+    defaultTheme = require(__dirname + "/node_modules/jsonresume-theme-" + theme);
   } catch (e) {
     return {
       e: e.toString(),
@@ -47,6 +48,17 @@ const getTheme = theme => {
         "Theme is not supported please visit -> https://github.com/jsonresume/registry-functions/issues/7"
     };
   }
+  try {
+    const anthonyTheme;
+    anthonyTheme = require(__dirname + "/node_modules/@anthonyjdella/jsonresume-theme-" + theme);
+  } catch (e) {
+    return {
+      e: e.toString(),
+      error:
+        "Theme is not supported please visit -> https://github.com/jsonresume/registry-functions/issues/7"
+    };
+  }
+  return defaultTheme || anthonyTheme
 };
 
 app.get("/themes", (req, res) => {
