@@ -49,14 +49,14 @@ const getTheme = theme => {
   }
 };
 
-const getCustomTheme = theme => {
+const getCustomTheme = customTheme => {
   try {
-    return require(__dirname + "/node_modules/@anthonyjdella/jsonresume-theme-anthonyjdella" + theme);
+    return require(__dirname + "/node_modules/@anthonyjdella/jsonresume-theme-anthonyjdella-" + customTheme);
   } catch (e) {
     return {
       e: e.toString(),
       error:
-        "Theme is not supported please visit -> https://github.com/jsonresume/registry-functions/issues/7"
+        "Custom Theme is not supported. Create a custom theme and publish it as an NPM package with the name @anthonyjdella/jsonresume-theme-anthonyjdella-{name-of-theme}"
     };
   }
 };
@@ -74,10 +74,10 @@ app.get("/theme/:theme", (req, res) => {
   const resumeHTML = themeRenderer.render(resumeJson, {});
   res.send(resumeHTML);
 });
-app.get("/theme/:customTheme", (req, res) => {
+app.get("/customTheme/:customTheme", (req, res) => {
   const resumeJson = JSON.parse(fs.readFileSync(__dirname + "/resume.json"));
-  const theme = req.params.theme.toLowerCase();
-  const themeRenderer = getCustomTheme(theme);
+  const customTheme = req.params.customTheme.toLowerCase();
+  const themeRenderer = getCustomTheme(customTheme);
   if (themeRenderer.error) {
     return res.send(themeRenderer.error + " - " + themeRenderer.e);
   }
