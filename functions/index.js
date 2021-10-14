@@ -226,10 +226,17 @@ app.get("/:username", async (req, res) => {
           return res.send(customThemeRenderer.error + " - " + customThemeRenderer.e);
         }
         const customResumeHTML = customThemeRenderer.render(resumeRes.data, {});
-        // if (!resumeHTMLRes.data) {
-        //   res.send("There was an error generatoring your resume");
-        // }
         res.send(customResumeHTML);
+      }
+      else {
+        let fallback = (resumeRes.data.meta && resumeRes.data.meta.theme) || "macchiato"
+        fallback = fallback.toLowerCase();
+        const fallbackThemeRenderer = getCustomTheme(custom);
+        if (fallbackThemeRenderer.error) {
+          return res.send(fallbackThemeRenderer.error + " - " + fallbackThemeRenderer.e);
+        }
+        const fallbackResumeHTML = fallbackThemeRenderer.render(resumeRes.data, {});
+        res.send(fallbackResumeHTML);
       }
 
     });
