@@ -1,10 +1,126 @@
-<div>
-    <h1>Welcome to my custom site which is hosted on Firebase!</h1>
-    <div>This site will convert your resume (in JSON format) to a resume with beautiful themes.</div>
+<!DOCTYPE html>
+<html>
 
-    <div>Hit /{your-github-username} and it will search GitHub for a gist under that account name, called resume.json. If found, it will validate the JSON based on a schema and then display your resume.</div>
+<head>
+    <style>
+        body {
+            font-family: poppins,sans-serif;
+            font-size: 1.125rem;
+            font-weight: 400;
+            line-height: 1.75;
+            color: #7e7e8a;
+            background-color: #fff;
+            position: relative;
+            margin-bottom: 100px;
+            display: block;
+            /* transition: all .3s ease; */
+        }
 
-    <div>You can change the theme of the resume by hitting /{your-github-username}?theme={name-of-theme}.</div>
+        .header {
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-wrap: wrap;
+            flex: 0 0 50%;
+            max-width: 60%;
+            position: relative;
+            box-sizing: border-box;
+        }
 
-    <div>You can also use a custom built theme by hitting /{your-github-username}?customTheme={name-of-theme}.</div>
-</div>
+        .background {
+            background: #1b2031;
+            height: 500%;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: skewY(-2deg);
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: auto;
+            margin-left: auto;
+            flex: 0 0 50%;
+            max-width: 45%;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .innerContent {
+            position: sticky;
+            top: 150px;
+            color: #f8f9fa;
+        }
+
+        h1 {
+            font-size: 4.125rem;
+        }
+
+        h2 {
+            font-size: 3.125rem;
+        }
+
+        h3 {
+            font-size: 2.125rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+        }
+
+        strong {
+            background-color: #2a4eff;
+            border-color: #2a4eff;
+            padding: 5px 20px;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Go back to the previous page & select a theme!</h1>
+    </div>
+
+    <div class="background">
+        <div class="content">
+            <div class="innerContent">
+                <h2>JSON Resume with Themes<sub><a href="https://anthonydellavecchia.com">@anthonyjdella</a></sub></h2>
+                <h3>What is this?</h3>
+                <p>
+                    <strong>Resumes for software engineers.</strong>
+
+                    <sub>This website will create your resume with beautiful themes.</sub>
+                </p>
+
+                <h3>How does it work?</h3>
+                <p>
+                    <ol type="1">
+                        <li>First thing you need to do is create a Resume in JSON Format, following this <a href="https://github.com/anthonyjdella/customized-resume-schema/blob/main/schema.json">schema</a>.</li>
+                            <ul>
+                                <li>For <a href="https://gist.github.com/anthonyjdella/8107d8559fd81d8c88791dbf245e5dac">example</a>.</li>
+                            </ul>
+                        <li>If you want to do Step 1 quickly, you can download a Chrome Extension that will automatically generate the JSON from your <a href="https://github.com/anthonyjdella/customized-linkedin-to-jsonresume">LinkedIn profile</a>!</li>
+                        <li>Copy the JSON and paste it into a GitHub Gist named resume.json.</li>
+                        <li>On this website, append your GitHub username to the url.</li>
+                            <ul>
+                                <li>For example, resume.anthonydellavecchia.com/(your-github-username)</li>
+                            </ul>
+                        <li>Then, enter the query string ?theme=(name-of-theme) to generate a theme.</li>
+                            <ul>
+                                <li>i.e. resume.anthonydellavecchia.com/anthonyjdella?theme=elegant</li>
+                            </ul>
+                        <li>If you instead enter the query string ?customTheme=(name-of-custom-theme), one of my custom themes will be displayed.</li>
+                            <ul>
+                                <li>i.e. resume.anthonydellavecchia.com/anthonyjdella?customTheme=elegant</li>
+                            </ul>
+                    </ol>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
