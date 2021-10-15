@@ -221,11 +221,16 @@ app.get("/:username", async (req, res) => {
       else if (req.query.customTheme) {
         let custom = req.query.customTheme || "github";
         custom = custom.toLowerCase();
+        console.log("using custom theme: " + custom);
         const customThemeRenderer = getCustomTheme(custom);
         if (customThemeRenderer.error) {
           return res.send(customThemeRenderer.error + " - " + customThemeRenderer.e);
         }
+        console.log("about to render resumeRes.data: ");
+        console.log(resumeRes.data);
         const customResumeHTML = customThemeRenderer.render(resumeRes.data, {});
+        console.log("customResumeHTML: ");
+        console.log(customResumeHTML);
         res.send(customResumeHTML);
       }
       else {
