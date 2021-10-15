@@ -13,9 +13,10 @@
     "node": "10"
   },
   "dependencies": {
-    "@anthonyjdella/jsonresume-theme-anthonyjdella-actual": "^1.0.4",
-    "@anthonyjdella/jsonresume-theme-anthonyjdella-elegant": "^1.0.2",
-    "@anthonyjdella/jsonresume-theme-anthonyjdella-github": "^1.0.1",
+    "@anthonyjdella/jsonresume-theme-anthonyjdella-actual": "^1.0.6",
+    "@anthonyjdella/jsonresume-theme-anthonyjdella-caffeine": "^1.0.0",
+    "@anthonyjdella/jsonresume-theme-anthonyjdella-elegant": "^1.0.9",
+    "@anthonyjdella/jsonresume-theme-anthonyjdella-github": "^1.0.3",
     "anthonyjdella-resume-schema": "^1.0.1",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
