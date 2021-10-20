@@ -19,6 +19,7 @@
     "@anthonyjdella/jsonresume-theme-anthonyjdella-github": "^1.0.3",
     "@anthonyjdella/jsonresume-theme-anthonyjdella-rocketspacer": "^1.0.0",
     "@anthonyjdella/jsonresume-theme-anthonyjdella-simple-red": "^1.0.0",
+    "@anthonyjdella/jsonresume-theme-anthonyjdella-spartan": "^1.0.0",
     "anthonyjdella-resume-schema": "^1.0.1",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
