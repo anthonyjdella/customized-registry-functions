@@ -4,7 +4,7 @@
 <head>
     <style>
         body {
-            font-family: poppins,sans-serif;
+            font-family: poppins, sans-serif;
             font-size: 1.125rem;
             font-weight: 400;
             line-height: 1.75;
@@ -22,9 +22,10 @@
             display: flex;
             flex-wrap: wrap;
             flex: 0 0 50%;
-            max-width: 60%;
+            /* max-width: 60%; */
             position: relative;
             box-sizing: border-box;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         }
 
         .background {
@@ -42,7 +43,7 @@
             margin-right: auto;
             margin-left: auto;
             flex: 0 0 50%;
-            max-width: 45%;
+            max-width: 60%;
             position: relative;
             box-sizing: border-box;
         }
@@ -75,20 +76,175 @@
             padding: 5px 20px;
             border-radius: 7px;
         }
+
+        body {
+            background-color: #C0B8DD;
+        }
+
+        .ico {
+            margin: 0 auto;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            filter: url("#goo");
+        }
+
+        .ico .circle {
+            background: #fff;
+            border-radius: 50%;
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            transform-origin: 0%;
+        }
+
+        .ico .circle.circle-top {
+            height: 33.3333333333px;
+            width: 41.6666666667px;
+            animation: blob-1-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+            z-index: 0;
+            top: 0;
+        }
+
+        .ico .circle.circle-bottom {
+            height: 33.3333333333px;
+            width: 41.6666666667px;
+            animation: blob-2-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+            z-index: 9;
+            bottom: 0px;
+        }
+
+        .ico .st-arrow {
+            fill: #55544F;
+            animation: scrolly 3s cubic-bezier(0.77, 0, 0.175, 1) forwards infinite;
+            perspective: 9000px;
+            transform: translateZ(0);
+            transform-origin: bottom;
+        }
+
+        .svg {
+            z-index: 9;
+            position: relative;
+        }
+
+        @keyframes blob-1-anim {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            14% {
+                transform: translateX(-50%) translateY(-8px);
+            }
+
+            24% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        @keyframes blob-2-anim {
+            0% {
+                transform: scale(1) translate(-50%, 10px);
+            }
+
+            30% {
+                transform: scale(1) translate(-50%, 10px);
+            }
+
+            70% {
+                transform: scale(1) translate(-50%, 10px);
+            }
+
+            95% {
+                transform: scale(1) translate(-50%, 26px);
+            }
+
+            100% {
+                transform: scale(1) translate(-50%, 10px);
+            }
+        }
+
+        @keyframes scrolly {
+            0% {
+                transform: translate3d(0, -150%, 0) rotateX(90deg) scale(0.5) skewX(3deg);
+            }
+
+            30% {
+                transform: translate3d(0, 0, 0) rotateX(0deg) scale(1) skewX(0deg);
+            }
+
+            70% {
+                transform: translate3d(0, 0, 0) rotateX(0deg) scale(1) skewX(0deg);
+            }
+
+            95% {
+                transform: translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg);
+            }
+
+            100% {
+                transform: translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg);
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="header">
-        <h1 style="margin-bottom: 10px !important;">404 - <strong style="color: white !important;">Resume.json</strong> Not Found</h1>
-        <h3 style="margin-top: 10px !important;">( Go back to the <a href="https://anthonydellavecchia.com">previous page</a> & select a theme! )</h3>
+    <div class="header" style="width: 100%;text-align: center;margin-bottom: 55vh;">
+        <h2 style="margin-bottom: 10px !important;width: 100%;"><strong
+                style="color: white !important; background-color: purple; border-color: purple;">404</strong>
+        </h2>
+        <h2 style="margin-bottom: 10px !important;margin-top: 0px !important;width: 100%;color: white;">Resume.json Not
+            Found 😔</h2>
+        <h1 style="margin-top: 10px !important;width: 100%;"><strong
+                style="color: white !important; background-color: #C0B8DD; background-color: #C0B8DD;">You must <a
+                    href="https://anthonydellavecchia.com"
+                    style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">select a
+                    theme!</a></strong></h1>
+    </div>
+
+
+    <div class="ico animated">
+        <div class="circle circle-top"></div>
+        <div class="circle circle-main"></div>
+        <div class="circle circle-bottom"></div>
+
+        <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+            <defs>
+                <clipPath id="cut-off-arrow">
+                    <circle cx="306" cy="306" r="287" />
+                </clipPath>
+
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                        result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+
+            <path class="st-arrow" d="M317.5,487.6c0.3-0.3,0.4-0.7,0.7-1.1l112.6-112.6c6.3-6.3,6.3-16.5,0-22.7c-6.3-6.3-16.5-6.3-22.7,0
+                          l-86,86V136.1c0-8.9-7.3-16.2-16.2-16.2c-8.9,0-16.2,7.3-16.2,16.2v301.1l-86-86c-6.3-6.3-16.5-6.3-22.7,0
+                          c-6.3,6.3-6.3,16.5,0,22.7l112.7,112.7c0.3,0.3,0.4,0.7,0.7,1c0.5,0.5,1.2,0.5,1.7,0.9c1.7,1.4,3.6,2.3,5.6,2.9
+                          c0.8,0.2,1.5,0.4,2.3,0.4C308.8,492.6,313.8,491.3,317.5,487.6z" />
+        </svg>
     </div>
 
     <div class="background">
         <div class="content">
             <div class="innerContent">
-                <h2>JSON Resume with Themes<sub><a href="https://anthonydellavecchia.com">@anthonyjdella</a></sub></h2>
+                <h2>JSON Resume with Themes<sub><a href="https://anthonydellavecchia.com"> @anthonyjdella</a></sub></h2>
                 <h3>What is this?</h3>
                 <p>
                     <strong>Resumes for software engineers.</strong>
@@ -99,24 +255,32 @@
                 <h3>How does it work?</h3>
                 <p>
                     <ol type="1">
-                        <li>First thing you need to do is create a Resume in JSON Format, following this <a href="https://github.com/anthonyjdella/customized-resume-schema/blob/main/schema.json">schema</a>.</li>
-                            <ul>
-                                <li>For <a href="https://gist.github.com/anthonyjdella/8107d8559fd81d8c88791dbf245e5dac">example</a>.</li>
-                            </ul>
-                        <li>If you want to do Step 1 quickly, you can download a Chrome Extension that will automatically generate the JSON from your <a href="https://github.com/anthonyjdella/customized-linkedin-to-jsonresume">LinkedIn profile</a>!</li>
+                        <li>First thing you need to do is create a Resume in JSON Format, following this <a
+                                href="https://github.com/anthonyjdella/customized-resume-schema/blob/main/schema.json">schema</a>.
+                        </li>
+                        <ul>
+                            <li>For <a
+                                    href="https://gist.github.com/anthonyjdella/8107d8559fd81d8c88791dbf245e5dac">example</a>.
+                            </li>
+                        </ul>
+                        <li>If you want to do Step 1 quickly, you can download a Chrome Extension that will
+                            automatically generate the JSON from your <a
+                                href="https://github.com/anthonyjdella/customized-linkedin-to-jsonresume">LinkedIn
+                                profile</a>!</li>
                         <li>Copy the JSON and paste it into a GitHub Gist named resume.json.</li>
                         <li>On this website, append your GitHub username to the url.</li>
-                            <ul>
-                                <li>For example, resume.anthonydellavecchia.com/(your-github-username)</li>
-                            </ul>
+                        <ul>
+                            <li>For example, resume.anthonydellavecchia.com/(your-github-username)</li>
+                        </ul>
                         <li>Then, enter the query string ?theme=(name-of-theme) to generate a theme.</li>
-                            <ul>
-                                <li>i.e. resume.anthonydellavecchia.com/anthonyjdella?theme=elegant</li>
-                            </ul>
-                        <li>If you instead enter the query string ?customTheme=(name-of-custom-theme), one of my custom themes will be displayed.</li>
-                            <ul>
-                                <li>i.e. resume.anthonydellavecchia.com/anthonyjdella?customTheme=elegant</li>
-                            </ul>
+                        <ul>
+                            <li>i.e. resume.anthonydellavecchia.com/anthonyjdella?theme=elegant</li>
+                        </ul>
+                        <li>If you instead enter the query string ?customTheme=(name-of-custom-theme), one of my custom
+                            themes will be displayed.</li>
+                        <ul>
+                            <li>i.e. resume.anthonydellavecchia.com/anthonyjdella?customTheme=elegant</li>
+                        </ul>
                     </ol>
                 </p>
             </div>
