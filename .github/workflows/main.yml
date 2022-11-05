@@ -45,7 +45,7 @@ jobs:
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
-        args: deploy
+        args: deploy --debug
       env:
         GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         FIREBASE_PROJECT: jsonresume-registry-b00b5
