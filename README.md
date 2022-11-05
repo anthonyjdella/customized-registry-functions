@@ -2,7 +2,7 @@
 
 🖼️ This is a slightly tweaked version of the [JSON Registry](https://github.com/jsonresume/registry-functions). That project is using their own Firebase project and a specific JSON schema. Since I customized my own schema, I want to be able to use this with a registry so that my schema is validated.
 
-## How's it Work?
+## How's it Work? 
 * This is a website hosted on Firebase and tied to my custom subdomain [resume.anthonydellavecchia.com](https://resume.anthonydellavecchia.com). 
 * It makes use of `Firebase Functions` to trigger HTTPS requests.
   * For example, there are methods to get a list of all possible themes, all users, get `resume.json` from GitHub gists, and more.
