@@ -16,7 +16,7 @@
 * `firestore.rules` holds Firebase database configuration.
 * `public/index.html` is the home page HTML for this site.
 * `functions/package.json` holds dependencies, including my custom built themes.
-* `functions/index.js` holds the core code for the Firebase registry functions. It looks for GitHub users Gists named `resume.json` then stores that data in Firebase. Then validates the JSON and applies a theme to it. 
+* `functions/index.js` holds the core code for the Firebase registry functions. It looks for GitHub users Gists named `resume.json` then stores that data in Firebase. Then validates the JSON and applies a theme to it.
 
 ## Custom Themes
 
